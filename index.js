@@ -47,8 +47,12 @@ function counterMaker() {
    return count++;
   }
 }
-
+console.log(counterMaker());
 const counter1 = counterMaker();
+console.log(counter1());
+console.log(counter1());
+console.log(counter1());
+console.log(counter1());
 
 // counter2 code
 let count = 0;
@@ -68,9 +72,8 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning(){
-  return Math.floor(Math.random() * Math.floor(2))
+  return Math.floor(Math.random() * Math.floor(3))
 }
-console.log(inning());
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -86,17 +89,20 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(inningCB, innings){
-  let homeScore = 0;
-  let awayScore = 0;
-  for(let i = 0; i < innings; i++){
-    homeScore = homeScore + inningCB();
-    awayScore = awayScore + inningCB();
+function finalScore(inningCB, numberOfInnings){
+ 
+  const score = { 'Home': 0 , 'Away': 0}
+
+  for (let i = 0; i < numberOfInnings; i++) {
+    score.Away += inningCB();
+    score.Home += inningCB();
   }
-return{
-  Home: homeScore,
-  Away: awayScore
+   return score;
+  
 }
+console.log('task 3', finalScore(inning,9));
+console.log('task 3', finalScore(inning,9));
+console.log('task 3', finalScore(inning,9));
 
 // console.log(`task3:`, finalScore(inning, 9))
 
@@ -172,7 +178,7 @@ function scoreboard(inningScoreCB, inningCB, numinnings) {
     scoreByInning.push(`Final Score: Away: ${awayScore} - Home ${homeScore}`);
   }
   return scoreByInning
-};
+}
 
 
 
