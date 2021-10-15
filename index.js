@@ -172,7 +172,7 @@ function scoreboard(inningScoreCB, inningCB, numinnings) {
     scoreByInning.push(`Final Score: Away: ${awayScore} - Home ${homeScore}`);
   }
   return scoreByInning
-}
+};
 
 
 
